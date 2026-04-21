@@ -68,7 +68,7 @@ const Navbar = () => {
     }, [q]);
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-4">
             <div className="container-fluid px-3 px-lg-4">
 
                 <Link className="navbar-brand" to="/">
