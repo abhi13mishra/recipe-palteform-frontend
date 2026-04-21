@@ -34,7 +34,7 @@ app.use(express.json());
 // CORS (frontend connect)
 const allowedOrigins = [
   "http://localhost:5173", // ✅ local
-  "https://recipe-sharing-p.netlify.app" // ✅ deployed
+  "https://recipe-sharing-platforrm.netlify.app" // ✅ deployed
 ];
 
 app.use(cors({
