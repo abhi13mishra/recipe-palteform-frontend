@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 const MyRecipes = () => {
     const [recipes, setRecipes] = useState([]);
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(true);
 
     const fetchMyRecipes = async () => {
         try {
@@ -29,6 +30,10 @@ const MyRecipes = () => {
     useEffect(() => {
         fetchMyRecipes();
     }, []);
+
+    if (loading) {
+        return <h4 className="text-center mt-4">Loading...</h4>;
+    }
 
     return (
         <div className="container mt-4">

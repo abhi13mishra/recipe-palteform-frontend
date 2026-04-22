@@ -107,7 +107,7 @@ const Home = () => {
                                         {recipe.description?.slice(0, 80)}...
                                     </p>
 
-                                    <p className="text-muted mb-2">
+                                    <p className="text-muted mb-2 card-text">
                                         👤 {recipe.user?.username || "unknown"}
                                     </p>
 
