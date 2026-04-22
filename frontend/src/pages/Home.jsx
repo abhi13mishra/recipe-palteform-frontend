@@ -84,7 +84,7 @@ const Home = () => {
                     <p>No recipes found</p>
                 ) : (
                     recipes.map((recipe) => (
-                        <div key={recipe._id} className="col-md-4 mb-4">
+                        <div key={recipe._id} className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
 
                             {/* 🔥 FULL CARD CLICKABLE */}
                             <div
