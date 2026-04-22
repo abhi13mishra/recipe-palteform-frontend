@@ -38,23 +38,50 @@ body {
 }
 
 /* 🔍 SEARCH INPUT */
+/* 🔍 SEARCH INPUT FIX */
 .navbar .form-control {
   border-radius: 20px;
   border: none;
-  background: #1e293b;
-  color: white;
-  padding: 8px 14px;
+  padding: 10px 15px;
+
+  /* FIXED */
+  background: #fff;
+  /* white */
+  color: #000;
+  /* black text */
 }
 
-/* ❌ REMOVE BLUE BORDER */
+/* focus clean */
 .navbar .form-control:focus {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
 }
 
+/* placeholder */
+/* 🔍 SEARCH INPUT FIX */
+.navbar .form-control {
+  border-radius: 20px;
+  border: none;
+  padding: 10px 15px;
+
+  /* FIXED */
+  background: #fff;
+  /* white */
+  color: #000;
+  /* black text */
+}
+
+/* focus clean */
+.navbar .form-control:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* placeholder */
 .navbar .form-control::placeholder {
-  color: #94a3b8;
+  color: #888;
 }
 
 .navbar .btn {

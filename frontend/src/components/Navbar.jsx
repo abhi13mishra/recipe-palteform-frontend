@@ -92,7 +92,7 @@ const Navbar = () => {
                 <div ref={navRef} className="collapse navbar-collapse" id="navbarContent">
 
                     {/* 🔍 Search */}
-                    <div className="mx-lg-auto w-100 position-relative my-2 my-lg-0" style={{ maxWidth: "500px" }}>
+                    <div className="mx-lg-auto w-100 position-relative my-2 my-lg-0">
                         <form
                             className="d-flex"
                             onSubmit={(e) => {
