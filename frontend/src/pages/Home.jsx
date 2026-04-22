@@ -4,13 +4,14 @@ import API from "../api/axios";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
 const Home = () => {
+    const { user } = useAuth();
+
     const [recipes, setRecipes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
 
     const query = searchParams.get("q") || "";
-    const [user, setUser] = useState(null);
 
 
     const fetchRecipes = async () => {
@@ -51,9 +52,9 @@ const Home = () => {
                     r._id === id
                         ? {
                             ...r,
-                            favorites: r.favorites.includes(user._id)
+                            favorites: r.favorites?.includes(user?._id)
                                 ? r.favorites.filter(f => f !== user._id)
-                                : [...r.favorites, user._id]
+                                : [...r.favorites, user?._id]
                         }
                         : r
                 )

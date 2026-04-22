@@ -10,6 +10,7 @@ const Register = () => {
         password: ""
     });
 
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
