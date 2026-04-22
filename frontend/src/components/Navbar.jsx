@@ -28,7 +28,7 @@ const Navbar = () => {
 
     useEffect(() => {
         fetchUser();
-    }, [location.pathname]);
+    }, []);
 
     const handleLogout = async () => {
         await API.post("/auth/logout");
