@@ -112,7 +112,8 @@ button.btn-sm {
 
 /* ================= FORMS ================= */
 
-form {
+.add-form {
+  background: #2d333a;
   padding: 30px;
   border-radius: 12px;
 }
