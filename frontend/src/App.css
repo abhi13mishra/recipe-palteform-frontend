@@ -19,16 +19,8 @@ body {
 /* ================= NAVBAR ================= */
 
 .navbar {
-  background: rgba(2, 6, 23, 0.9) !important;
+  background: #020617 !important;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  /* 🔥 STICKY */
-  position: sticky;
-  top: 0;
-  z-index: 999;
-
-  /* glass effect */
-  backdrop-filter: blur(10px);
 }
 
 .navbar-brand {
@@ -37,51 +29,9 @@ body {
   letter-spacing: 1px;
 }
 
-/* 🔍 SEARCH INPUT */
-/* 🔍 SEARCH INPUT FIX */
 .navbar .form-control {
   border-radius: 20px;
   border: none;
-  padding: 10px 15px;
-
-  /* FIXED */
-  background: #fff;
-  /* white */
-  color: #000;
-  /* black text */
-}
-
-/* focus clean */
-.navbar .form-control:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* placeholder */
-/* 🔍 SEARCH INPUT FIX */
-.navbar .form-control {
-  border-radius: 20px;
-  border: none;
-  padding: 10px 15px;
-
-  /* FIXED */
-  background: #fff;
-  /* white */
-  color: #000;
-  /* black text */
-}
-
-/* focus clean */
-.navbar .form-control:focus {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
-/* placeholder */
-.navbar .form-control::placeholder {
-  color: #888;
 }
 
 .navbar .btn {
