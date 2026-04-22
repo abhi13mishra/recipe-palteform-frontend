@@ -67,7 +67,7 @@ const Login = () => {
                     />
                 </div>
 
-                <button className="btn btn-dark w-100">
+                <button className="btn btn-warning w-100">
                     Login
                 </button>
 

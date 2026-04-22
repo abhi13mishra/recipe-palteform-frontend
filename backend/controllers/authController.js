@@ -178,8 +178,17 @@ export const refreshToken = (req, res) => {
 
 // ================= LOGOUT =================
 export const logout = (req, res) => {
-  res.clearCookie("token");
-  res.clearCookie("refreshToken");
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none"
+  });
+
+  res.clearCookie("refreshToken", {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none"
+  });
 
   res.json({
     success: true,

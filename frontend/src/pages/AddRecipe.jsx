@@ -11,7 +11,7 @@ const AddRecipe = () => {
         image: ""
     });
 
-    const [loading, setLoading] = useState(false);
+
     const navigate = useNavigate();
 
     const handleChange = (e) => {
@@ -55,10 +55,6 @@ const AddRecipe = () => {
 
         setLoading(false);
     };
-
-    if (loading) {
-        return <h4 className="text-center mt-4">Loading...</h4>;
-    }
 
     return (
         <div className="container mt-4" style={{ maxWidth: "600px" }}>

@@ -3,7 +3,6 @@ import API from "../api/axios";
 
 const Favorites = () => {
     const [recipes, setRecipes] = useState([]);
-    const [loading, setLoading] = useState(true);
 
     const fetchFavorites = async () => {
         try {
@@ -27,9 +26,7 @@ const Favorites = () => {
         fetchFavorites();
     }, []);
 
-    if (loading) {
-        return <h4 className="text-center mt-4">Loading...</h4>;
-    }
+
 
     return (
         <div className="container mt-4">
