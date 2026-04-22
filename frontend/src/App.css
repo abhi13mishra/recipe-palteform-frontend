@@ -37,8 +37,7 @@ body,
 .navbar .form-control {
   border-radius: 20px;
   border: none;
-  background: #0f172a !important;
-  color: #fff !important;
+  color: #1d1c1c !important;
 }
 
 .navbar .form-control::placeholder {

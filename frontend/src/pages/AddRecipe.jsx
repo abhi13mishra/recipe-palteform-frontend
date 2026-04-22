@@ -10,7 +10,7 @@ const AddRecipe = () => {
         ingredients: "",
         image: ""
     });
-
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
