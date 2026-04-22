@@ -9,7 +9,6 @@ const Navbar = () => {
     const location = useLocation();
     const [user, setUser] = useState(null);
     const [q, setQ] = useState("");
-    const [loading, setLoading] = useState(true);
     const [suggestions, setSuggestions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
@@ -21,8 +20,6 @@ const Navbar = () => {
             setUser(res.data.user);
         } catch {
             setUser(null);
-        } finally {
-            setLoading(false); // 🔥 important
         }
     };
 
@@ -39,7 +36,9 @@ const Navbar = () => {
     const handleChange = (e) => {
         const value = e.target.value;
         setQ(value);
-        navigate(`/?q=${value}`);
+        if (location.pathname === "/") {
+            navigate(`/?q=${value}`);
+        }
     };
     const closeNavbar = () => {
         const nav = navRef.current;
@@ -70,9 +69,7 @@ const Navbar = () => {
         return () => clearTimeout(timer);
     }, [q]);
 
-    if (loading) {
-        return null;
-    }
+
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-4 sticky-top">
             <div className="container-fluid px-3 px-lg-4">
@@ -103,7 +100,9 @@ const Navbar = () => {
                             onSubmit={(e) => {
                                 e.preventDefault();
                                 if (!q.trim()) return;
-                                navigate(`/?q=${q}`);
+                                if (location.pathname === "/") {
+                                    navigate(`/?q=${q}`);
+                                }
                                 setSuggestions([]);
                                 closeNavbar(); // ✅ added
                             }}
