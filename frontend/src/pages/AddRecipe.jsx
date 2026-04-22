@@ -60,7 +60,7 @@ const AddRecipe = () => {
         <div className="container mt-4" style={{ maxWidth: "600px" }}>
             <h2 className="mb-4">Add Recipe</h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="add-form">
 
                 <input
                     type="text"
