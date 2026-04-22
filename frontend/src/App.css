@@ -1,10 +1,11 @@
-/* 🌍 GLOBAL RESET */
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* BODY FIX */
 html,
 body,
 #root {
@@ -32,9 +33,16 @@ body,
   letter-spacing: 1px;
 }
 
+/* SEARCH */
 .navbar .form-control {
   border-radius: 20px;
   border: none;
+  background: #0f172a !important;
+  color: #fff !important;
+}
+
+.navbar .form-control::placeholder {
+  color: #9ca3af;
 }
 
 .navbar .btn {
@@ -72,11 +80,20 @@ h2 {
 .card-title {
   font-size: 18px;
   font-weight: 600;
+  color: #f1f5f9 !important;
 }
 
 .card-text {
   font-size: 14px;
-  color: #94a3b8;
+  color: #cbd5e1 !important;
+}
+
+/* ================= LIKE ================= */
+
+button.btn-sm {
+  font-size: 14px;
+  color: #ef4444 !important;
+  font-weight: 500;
 }
 
 /* ================= BUTTONS ================= */
@@ -109,9 +126,22 @@ h2 {
   border: none;
 }
 
-/* ❤️ LIKE BUTTON */
-button.btn-sm {
-  font-size: 14px;
+
+.card .btn-outline-primary {
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 13px;
+  border: 1px solid #6366f1;
+  color: #6366f1;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.card .btn-outline-primary:hover {
+  background: #6366f1;
+  color: #fff;
+  border-color: #6366f1;
+  transform: scale(1.05);
 }
 
 /* ================= FORMS ================= */
@@ -127,6 +157,14 @@ textarea {
   border-radius: 8px !important;
   border: none !important;
   padding: 10px;
+  background: #0f172a !important;
+  color: #fff !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9ca3af !important;
+  opacity: 1;
 }
 
 input:focus,
@@ -148,9 +186,7 @@ textarea:focus {
 
 /* ================= RESPONSIVE ================= */
 
-/* 📱 TABLET */
 @media (max-width: 768px) {
-
   .navbar {
     padding: 12px !important;
   }
@@ -173,9 +209,7 @@ textarea:focus {
   }
 }
 
-/* 📲 MOBILE */
 @media (max-width: 480px) {
-
   .container {
     padding: 10px;
   }
@@ -197,7 +231,8 @@ textarea:focus {
   }
 }
 
-/* 🍔 Custom hamburger */
+/* Custom hamburger */
+
 .navbar-toggler {
   width: 30px;
   height: 25px;
@@ -215,7 +250,6 @@ textarea:focus {
   transition: 0.3s ease;
 }
 
-/* lines */
 .navbar-toggler span:nth-child(1) {
   top: 0;
 }
@@ -228,7 +262,6 @@ textarea:focus {
   top: 20px;
 }
 
-/* ❌ cross animation */
 .navbar-toggler.open span:nth-child(1) {
   transform: rotate(45deg);
   top: 10px;
@@ -243,21 +276,12 @@ textarea:focus {
   top: 10px;
 }
 
-/* remove default icon */
 .navbar-toggler-icon {
   display: none;
 }
 
-/* 🔥 navbar text visible */
 .navbar a,
 .navbar .nav-link,
 .navbar-brand {
   color: #ffffff !important;
-}
-
-/* 🔥 input dark fix */
-input,
-textarea {
-  background: #111827 !important;
-  color: #fff !important;
 }
