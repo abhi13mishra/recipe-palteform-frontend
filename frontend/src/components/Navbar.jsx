@@ -16,18 +16,8 @@ const Navbar = () => {
     const navigate = useNavigate();
     const navRef = useRef();
 
-    const fetchUser = async () => {
-        try {
-            const res = await API.get("/auth/profile");
-            setUser(res.data.user);
-        } catch {
-            setUser(null);
-        }
-    };
 
-    useEffect(() => {
-        fetchUser();
-    }, []);
+
 
     const handleLogout = async () => {
         await API.post("/auth/logout");
