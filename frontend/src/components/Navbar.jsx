@@ -7,8 +7,8 @@ import { useLocation } from "react-router-dom";
 
 
 const Navbar = () => {
-    const hideAuthPages = location.pathname === "/login" || location.pathname === "/register";
     const location = useLocation();
+    const hideAuthPages = location.pathname === "/login" || location.pathname === "/register";
     const [q, setQ] = useState("");
     const { user, setUser } = useAuth();
     const [suggestions, setSuggestions] = useState([]);

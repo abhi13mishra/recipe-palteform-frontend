@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
 import API from "../api/axios";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 
@@ -11,11 +12,6 @@ const Home = () => {
     const query = searchParams.get("q") || "";
     const [user, setUser] = useState(null);
 
-    useEffect(() => {
-        API.get("/auth/profile")
-            .then((res) => setUser(res.data.user))
-            .catch(() => setUser(null));
-    }, []);
 
     const fetchRecipes = async () => {
         try {
