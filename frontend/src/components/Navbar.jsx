@@ -9,6 +9,7 @@ const Navbar = () => {
     const location = useLocation();
     const [user, setUser] = useState(null);
     const [q, setQ] = useState("");
+    const [loading, setLoading] = useState(true);
     const [suggestions, setSuggestions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
@@ -20,6 +21,8 @@ const Navbar = () => {
             setUser(res.data.user);
         } catch {
             setUser(null);
+        } finally {
+            setLoading(false); // 🔥 important
         }
     };
 
@@ -67,6 +70,9 @@ const Navbar = () => {
         return () => clearTimeout(timer);
     }, [q]);
 
+    if (loading) {
+        return null;
+    }
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark py-4 sticky-top">
             <div className="container-fluid px-3 px-lg-4">
@@ -77,19 +83,18 @@ const Navbar = () => {
 
                 {/*Mobile Toggle */}
                 <button
-                    className="navbar-toggler"
+                    className={`navbar-toggler ${isOpen ? "open" : ""}`}
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarContent"
-                    aria-controls="navbarContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                    onClick={() => setIsOpen(!isOpen)}
                 >
-                    <span className="navbar-toggler-icon"></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
 
                 {/* 🔥 Collapse Start */}
-                <div ref={navRef} className="collapse navbar-collapse" id="navbarContent">
+                <div
+                    ref={navRef} className={`collapse navbar-collapse ${isOpen ? "show" : ""}`}>
 
                     {/* 🔍 Search */}
                     <div className="mx-lg-auto w-100 position-relative my-2 my-lg-0" style={{ maxWidth: "500px" }}>
@@ -133,7 +138,7 @@ const Navbar = () => {
                     </div>
 
                     {/* 🔗 Right side */}
-                    <div className="ms-auto d-flex flex-column flex-lg-row align-items-lg-center gap-3 mt-2 mt-lg-0">
+                    <div className="ms-lg-auto d-flex flex-column flex-lg-row align-items-center text-center gap-3 mt-2 mt-lg-0">
                         {!user ? (
                             <>
                                 <Link className="btn btn-outline-light" to="/login" onClick={closeNavbar}>
@@ -145,13 +150,13 @@ const Navbar = () => {
                             </>
                         ) : (
                             <>
-                                <Link className="nav-link text-white px-2" to="/add" onClick={closeNavbar}>
+                                <Link className="nav-link text-white px-2 text-center" to="/add" onClick={closeNavbar}>
                                     Add Recipe
                                 </Link>
-                                <Link className="nav-link text-white px-2" to="/my" onClick={closeNavbar}>
+                                <Link className="nav-link text-white px-2 text-center" to="/my" onClick={closeNavbar}>
                                     My Recipes
                                 </Link>
-                                <Link className="nav-link text-white px-2" to="/favorites" onClick={closeNavbar}>
+                                <Link className="nav-link text-white px-2 text-center" to="/favorites" onClick={closeNavbar}>
                                     Favorites
                                 </Link>
 

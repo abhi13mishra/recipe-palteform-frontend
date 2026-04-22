@@ -192,3 +192,54 @@ textarea:focus {
     font-size: 13px;
   }
 }
+
+/* 🍔 Custom hamburger */
+.navbar-toggler {
+  width: 30px;
+  height: 25px;
+  position: relative;
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+/* lines */
+.navbar-toggler span:nth-child(1) {
+  top: 0;
+}
+
+.navbar-toggler span:nth-child(2) {
+  top: 10px;
+}
+
+.navbar-toggler span:nth-child(3) {
+  top: 20px;
+}
+
+/* ❌ cross animation */
+.navbar-toggler.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.navbar-toggler.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+/* remove default icon */
+.navbar-toggler-icon {
+  display: none;
+}
