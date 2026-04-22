@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import API from "../api/axios";
 import { toast } from "react-toastify";
 
 const Login = () => {
+    const { setUser } = useAuth();
     const [form, setForm] = useState({
         email: "",
         password: ""
@@ -22,13 +24,13 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            await API.post("/auth/login", form);
+            const res = await API.post("/auth/login", form);
 
-            toast.success("Login successful.")
-            navigate("/"); // home pe redirect
+            setUser(res.data.user);
 
-            // optional reload for navbar update
-            window.location.reload();
+            toast.success("Login successful.");
+            navigate("/");
+
 
         } catch (err) {
             toast.error("Invalid credentials.");

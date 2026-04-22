@@ -1,18 +1,20 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import API from "../api/axios";
 import { useLocation } from "react-router-dom";
 
 
 
 const Navbar = () => {
+    const hideAuthPages = location.pathname === "/login" || location.pathname === "/register";
     const location = useLocation();
-    const [user, setUser] = useState(null);
     const [q, setQ] = useState("");
+    const { user, setUser } = useAuth();
     const [suggestions, setSuggestions] = useState([]);
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
-    const navRef = useRef(); // ✅ added
+    const navRef = useRef();
 
     const fetchUser = async () => {
         try {
@@ -138,7 +140,7 @@ const Navbar = () => {
 
                     {/* 🔗 Right side */}
                     <div className="ms-lg-auto d-flex flex-column flex-lg-row align-items-center text-center gap-3 mt-2 mt-lg-0">
-                        {!user ? (
+                        {!user || hideAuthPages ? (
                             <>
                                 <Link className="btn btn-outline-light" to="/login" onClick={closeNavbar}>
                                     Login
